@@ -9,7 +9,7 @@
 
 ## Main points: array advanced methods
 
-Los métodos `.map()`, `.filter()` y `.reduce()` son métodos del objeto Array que no mutan el array original.
+Los métodos `.map()`, `.filter()` y `.reduce()` son métodos del objeto Array que **no mutan el array original**.
 
 - El método `.map()`:
   - Recibe como argumento una función.
