@@ -35,7 +35,7 @@ Los métodos `.map()`, `.filter()` y `.reduce()` son métodos del objeto Array q
   - Toma como valor del acumulador para la segunda y sucesivas iteraciones el valor retornado de la anterior iteración.
     ````javascript
     const values = [2, 4, 6]
-    const sum = values.reduce((acc, elm) => acc + elm)            // 12 
+    const sum1 = values.reduce((acc, elm) => acc + elm)            // 12 
     const sum2 = values.reduce((acc, elm) => acc + elm, 100)      // 112 
     ````
   
