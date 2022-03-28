@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+
+        // Object reference
+        const person = {
+            name: 'Jessy',
+            age: 22
+        }
+
+        const fakePersonCopy = person
+        fakePersonCopy.name = 'Joe'            // Manipula las dos referencias
+
+        console.log('El original:', person)
+        console.log('La referencia - no copia:', fakePersonCopy)
+
+
+
+
+        console.log('------')
+
+
+        // Real copy with spread operator
+        const realPersonCopy = { ...person }
+        realPersonCopy.age = 99                     // Does not mutate original object yay!
+        realPersonCopy.street = 'Serrano'
+
+        console.log('El original:', person)
+        console.log('La referencia - no copia:', fakePersonCopy)
+        console.log('La copia real con el spread operator:', realPersonCopy)
+
+
+    </script>
+</body>
+
+</html>

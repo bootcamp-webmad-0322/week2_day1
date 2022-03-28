@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        const classroom = [
+            { name: 'Susy', age: 33 },
+            { name: 'Joe', age: 11 }
+        ]
+
+        // Array of objects reference
+        const fakeClassroomCopy = classroom
+        fakeClassroomCopy[1].age = 12         // Manipula las dos referencias...
+
+        console.log('El original:', classroom)
+        console.log('La referencia - no copia:', fakeClassroomCopy)
+
+
+
+
+
+        console.log('------')
+
+
+        // DEEP copy with JSON parse
+        const realClassroomCopy = JSON.parse(JSON.stringify(classroom))
+        realClassroomCopy[1].name = 'Cambiado en la copia'      // Manipula sólo la copia
+
+        console.log('El original:', classroom)
+        console.log('La referencia - no copia:', fakeClassroomCopy)
+        console.log('La copia real con el spread operator:', realClassroomCopy)
+
+
+    </script>
+</body>
+
+</html>

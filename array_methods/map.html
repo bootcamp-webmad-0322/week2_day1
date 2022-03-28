@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        // .map() receives a callback as an argument
+        // .map() does not mutate the original array
+        // .map() returns a new array with the same length than the original one
+
+        // the argumented callback has a default parameter: each array position
+        // Each position from the new array will have the returned value on each iteration
+
+
+
+
+
+        const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+        // const doubledNumbers = numbers.map(function (eachNumer) {
+        //     return eachNumer * 2
+        // })
+
+        const doubledNumbers = numbers.map(eachNumer => eachNumer * 2)
+
+        console.log('Numeros duplicados:', doubledNumbers)
+
+
+
+
+
+
+        const cities = ['madrid', 'berlin', 'gijón']
+
+        const capitalizedCities = cities.map(eachCity => {
+            const firstLetter = eachCity[0].toUpperCase()
+            const rest = eachCity.substring(1)
+            const fullName = firstLetter + rest
+            return fullName
+        })
+
+        console.log('Ciudades con mayúscula:', capitalizedCities)
+
+
+
+
+
+        const students = [
+            {
+                name: 'Tony Parker',
+                firstProject: 80,
+                secondProject: 75,
+                finalExam: 90
+            },
+            {
+                name: 'Marc Barchini',
+                firstProject: 84,
+                secondProject: 65,
+                finalExam: 65
+            },
+            {
+                name: 'Claudia Lopez',
+                firstProject: 45,
+                secondProject: 95,
+                finalExam: 99
+            },
+            {
+                name: 'Alvaro Briattore',
+                firstProject: 82,
+                secondProject: 92,
+                finalExam: 70
+            },
+            {
+                name: 'Isabel Ortega',
+                firstProject: 90,
+                secondProject: 32,
+                finalExam: 85
+            },
+            {
+                name: 'Francisco Martinez',
+                firstProject: 90,
+                secondProject: 55,
+                finalExam: 78
+            },
+            {
+                name: 'Jorge Carrillo',
+                firstProject: 83,
+                secondProject: 77,
+                finalExam: 90
+            },
+            {
+                name: 'Miguel López',
+                firstProject: 80,
+                secondProject: 75,
+                finalExam: 75
+            },
+            {
+                name: 'Carolina Perez',
+                firstProject: 85,
+                secondProject: 72,
+                finalExam: 67
+            },
+            {
+                name: 'Ruben Pardo',
+                firstProject: 89,
+                secondProject: 72,
+                finalExam: 65
+            }
+        ]
+
+
+        // // Try 1 - failed! We need student's info
+        // const finalGradesArray = students.map(eachStudent => {
+        //     const projectsAVg = (eachStudent.firstProject + eachStudent.secondProject) / 2
+        //     const projectsPart = projectsAVg * .4
+        //     const finalProjectPart = eachStudent.finalExam * .6
+        //     const finalGrade = projectsPart + finalProjectPart
+        //     return finalGrade.toFixed(2)
+        // })
+
+
+
+        // // Try 2 - failed! We need ALL student's info
+        // const finalGradesArray = students.map(eachStudent => {
+        //     const projectsAVg = (eachStudent.firstProject + eachStudent.secondProject) / 2
+        //     const projectsPart = projectsAVg * .4
+        //     const finalProjectPart = eachStudent.finalExam * .6
+        //     const finalGrade = projectsPart + finalProjectPart
+        //     const student = {
+        //         name: eachStudent.name,
+        //         grade: finalGrade.toFixed(2)
+        //     }
+        //     return student
+        // })
+
+
+        // Try 3: success!
+        const finalGradesArray = students.map(eachStudent => {
+            const projectsAVg = (eachStudent.firstProject + eachStudent.secondProject) / 2
+            const projectsPart = projectsAVg * .4
+            const finalProjectPart = eachStudent.finalExam * .6
+            const finalGrade = projectsPart + finalProjectPart
+            const student = {
+                ...eachStudent,         // party
+                grade: finalGrade.toFixed(2)
+            }
+            return student
+        })
+
+
+
+
+        console.log('Notas finales:', finalGradesArray)
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        // .reduce() does not mutate the original array
+        // .reduce() receives a callback as an argument
+        // .reduce() returns a single value from accumulating values from the array
+
+        // the argumented callback has TWO default parameters: accumulator and each array position
+        // the accumulator value will be the first value for the first iteration, unless a second argument figures, which value will be taken as acc first value
+        // the accumulator value will be the returned value for the rest of the iterations
+
+
+        const numbers = [22, 3, 12, 9, 31]
+
+        const sumNumbers = numbers.reduce((acc, eachNumber) => {
+            console.log('EL VALOR DEL ACUMULADOR ES', acc)
+            console.log('EL VALOR ACTUAL ES', eachNumber)
+            console.log('------')
+            return acc + eachNumber
+        })
+
+        console.log('El sumatorio es', sumNumbers)
+
+
+
+
+        const words = ['This', 'is', 'one', 'big', 'string']
+
+        const fullString = words.reduce((acc, eachWord) => {
+            return acc + eachWord
+        })
+
+        console.log('TODOJUNTO', fullString)
+
+
+
+
+
+        const menu = [
+            { name: 'Carrots', calories: 150 },
+            { name: 'Steak', calories: 350 },
+            { name: 'Broccoli', calories: 120 },
+            { name: 'Chicken', calories: 250 },
+            { name: 'Pizza', calories: 520 }
+        ];
+
+
+
+        // Try 1 ---> [object Object][object Object][object Object][object Object][object Object]
+        // Explanation: eachFood is an [object Object] that gets accumnulated
+
+        // const caloriesSum = menu.reduce((acc, eachFood) => {
+        //     console.log(eachFood)
+        //     return acc + eachFood
+        // })
+
+
+
+        // // Try 2 ---> [object Object]350120250520
+        // // Explanation: takes first object as acc for first iteration, accumulates calories for remaining ones
+        // const caloriesSum = menu.reduce((acc, eachFood) => {
+        //     return acc + eachFood.calories
+        // })
+
+
+        // Try 3 ---> 1390 :D
+        // Explanation: .reduce() receives a second optional argument: accumulator fist value -> .reduce(fn, 0)
+        const caloriesSum = menu.reduce((acc, eachFood) => {
+            return acc + eachFood.calories
+        }, 0) // <-- ojo!
+
+
+
+        console.log('Las calorías totales son:', caloriesSum / menu.length)
+
+
+
+
+
+
+
+        const product = {
+            name: 'AmazonBasics Apple Certified Lightning to USB Cable',
+            price: 7.99,
+            manufacturer: 'Amazon',
+            reviews: [
+                { user: 'Pavel Nedved', comments: 'It was really useful, strongly recommended', rate: 4 },
+                { user: 'Alvaro Trezeguet', comments: 'It lasted 2 days', rate: 1 },
+                { user: 'David Recoba', comments: 'Awesome', rate: 5 },
+                { user: 'Jose Romero', comments: 'Good value for money', rate: 4 },
+                { user: 'Antonio Cano', comments: 'It broked really fast', rate: 2 }
+            ]
+        }
+
+
+        const sumRate = product.reviews.reduce((acc, eachReview) => {
+            return acc + eachReview.rate
+        }, 0) // <-- ojo!
+
+
+        console.log('La calificación media es', sumRate / product.reviews.length)
+
+
+
+
+    </script>
+</body>
+
+</html>
